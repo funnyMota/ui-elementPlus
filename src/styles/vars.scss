@@ -1,0 +1,76 @@
+@use 'sass:color';
+$colors:(
+  primary:#409EFF,
+  success:#67C23A,
+  warning:#E6A23C,
+  danger:#F56C6C,
+  info:#909399,
+);
+
+:root{
+  @each $val,$color in $colors{
+    // 生成主题色
+    --ui-color-#{$val}:#{$color};
+    // 生成不同亮度的颜色
+    @for $i from 1 through 4{
+      --ui-color-#{$val}-light-#{2*$i+1}:#{color.mix(#fff,$color,((2*$i+1)*10%))};
+    }
+    --ui-color-#{$val}-light-8:#{color.mix(#fff,$color,80%)};
+    --ui-color-#{$val}-dark-2:#{color.mix(#000,$color,20%)};
+  }
+    // 接下来，还有一些其他的颜色变量
+  // 对应的是 ElementUI 里面的中性色
+  --ui-color-white: #fff;
+  --ui-color-black: #000;
+  --ui-bg-color: #ffffff;
+  --ui-bg-color-page: #f2f3f5;
+  --ui-bg-color-overlay: #ffffff;
+  --ui-text-color-primary: #303133;
+  --ui-text-color-regular: #606266;
+  --ui-text-color-secondary: #909399;
+  --ui-text-color-placeholder: #a8abb2;
+  --ui-text-color-disabled: #c0c4cc;
+  --ui-border-color: #dcdfe6;
+  --ui-border-color-light: #e4e7ed;
+  --ui-border-color-lighter: #ebeef5;
+  --ui-border-color-extra-light: #f2f6fc;
+  --ui-border-color-dark: #d4d7de;
+  --ui-border-color-darker: #cdd0d6;
+  --ui-fill-color: #f0f2f5;
+  --ui-fill-color-light: #f5f7fa;
+  --ui-fill-color-lighter: #fafafa;
+  --ui-fill-color-extra-light: #fafcff;
+  --ui-fill-color-dark: #ebedf0;
+  --ui-fill-color-darker: #e6e8eb;
+  --ui-fill-color-blank: #ffffff;
+
+  // 和 border 相关的变量
+  --ui-border-width: 1px;
+  --ui-border-style: solid;
+  --ui-border-color-hover: var(--ui-text-color-disabled);
+  --ui-border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+  --ui-border-radius-base: 4px;
+  --ui-border-radius-small: 2px;
+  --ui-border-radius-round: 20px;
+  --ui-border-radius-circle: 100%;
+
+  // 和 font 相关的变量
+  --ui-font-size-extra-large: 20px;
+  --ui-font-size-large: 18px;
+  --ui-font-size-medium: 16px;
+  --ui-font-size-base: 14px;
+  --ui-font-size-small: 13px;
+  --ui-font-size-extra-small: 12px;
+  --ui-font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', '\5fae\8f6f\96c5\9ed1', Arial, sans-serif;
+  --ui-font-weight-primary: 500;
+
+  // 和 disabled 相关的变量
+  --ui-disabled-bg-color: var(--ui-fill-color-light);
+  --ui-disabled-text-color: var(--ui-text-color-placeholder);
+  --ui-disabled-border-color: var(--ui-border-color-light);
+
+  // 和 transition 过渡相关的变量
+  --ui-transition-duration: 0.3s;
+  --ui-transition-duration-fast: 0.2s;
+}

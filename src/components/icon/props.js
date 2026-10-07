@@ -1,0 +1,27 @@
+export default{
+  icon:{
+    type:String,
+    required:true,
+  },
+  size:{
+    type:String,
+  },
+  rotation:{
+    type:[Number,String]
+  },
+  flip:{
+    type:[Number,String]
+  },
+  spin:Boolean,
+  beat:Boolean,
+  shake:Boolean,
+  bounce:Boolean,
+  fade:Boolean,
+  'beat-fade':Boolean,
+  type:{
+    type:String,
+  },
+  color:{
+    type:String,
+  }
+}

@@ -1,11 +1,42 @@
-<script setup></script>
-
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <h1 class="title">组件</h1>
+  <nav class="nav">
+    <router-link to="/">Icon</router-link>
+    <router-link to="/button">button</router-link>
+    <router-link to="/card">card</router-link>
+    <router-link to="/collapse">collapse</router-link>
+    <router-link to="/dialog">dialog</router-link>
+    <router-link to="/dropdown">dropdown</router-link>
+    <router-link to="/pager">pager</router-link>
+    <router-link to="/tooltip">tooltip</router-link>
+  </nav>
+  <div class="displayArea">
+    <router-view></router-view>
+  </div>
 </template>
+<script setup>
+</script>
 
-<style scoped></style>
+
+<style lang="scss" scoped>
+h1.title {
+  text-align: center;
+  // margin-top: 5em;
+  font-weight: 200;
+}
+
+.nav {
+  display: flex;
+  height: 50px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.displayArea {
+  margin-top: 2em;
+}
+
+.active {
+  border-bottom: 3px solid hsla(160, 100%, 37%, 1);
+}
+</style>
